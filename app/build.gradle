@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId 'com.example.hellojnicallback'
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                          'proguard-rules.pro'
+        }
+    }
+//    externalNativeBuild {
+//        cmake {
+//            version '3.10.2'
+//            path "src/main/cpp/CMakeLists.txt"
+//        }
+//    }
+    /*
+    following so is mandatory, copy them from  out/target/product/${your target}/system/lib/
+        libbacktrace.so
+        libbase.so
+        libbinder.so
+        libc++.so
+        libcutils.so
+        libdexfile.so
+        liblzma.so
+        libunwind.so
+        libunwindstack.so
+        libutils.so
+        libutilscallstack.so
+        libvndksupport.so
+
+    *
+    */
+    splits {
+
+        // Configures screen ABI split settings
+        abi {
+
+            // Enable ABI APK splits
+            enable true
+
+            // By default all ABIs are included, so use reset() and include to specify that we only
+            // want APKs for x86, armeabi-v7a, and mips
+
+            // Resets the list of ABIs that Gradle should create APKs for to none
+            reset()
+
+            // Specifies a list of ABIs that Gradle should create APKs for
+            include "x86", "armeabi-v7a"
+
+            // Specify that we do not want to also generate a universal APK that includes all ABIs
+            universalApk false
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+}
