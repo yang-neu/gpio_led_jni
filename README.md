@@ -1,4 +1,4 @@
-Hello JNI Callback
+A JNI interface between JAVA activity and aidl service. (Inherited from https://github.com/android/ndk-samples/tree/master/hello-jniCallback)
 ==================
 This sample is an Aadd-on to Hello JNI sample to demonstrate calling back to Java from C code
 - create a java class instance from C code
