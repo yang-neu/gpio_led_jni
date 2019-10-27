@@ -1,10 +1,6 @@
 A JNI interface between JAVA activity and aidl service. 
 ==================
 This sample is inheried from https://github.com/android/ndk-samples/tree/master/hello-jniCallback
-- create a java class instance from C code
-- call java class static and non-static member functions
-
-This sample uses the new [Android Studio CMake plugin](http://tools.android.com/tech-docs/external-c-builds) with C++ support.
 
 Pre-requisites
 --------------
